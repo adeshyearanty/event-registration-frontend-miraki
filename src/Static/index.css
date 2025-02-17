@@ -1,0 +1,121 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /* color: white; */
+}
+
+.main {
+    margin: auto;
+}
+
+.heading {
+    color: white;
+    margin: 30px 50px;
+}
+
+.welcome {
+    margin: 100px;
+    font-size: 70px;
+    color: white;
+}
+
+.index-container {
+    margin: 80px auto;
+    width: 600px;
+}
+
+.inner-container {
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.btn {
+    margin: 10px 20px;
+}
+
+.register-btn {
+    width: 93%;
+}
+
+.view-btn {
+    width: 50%;
+}
+
+.image {
+    height: 100vh;
+    width: 100vw;
+}
+
+.main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    z-index: 1000;
+    /* padding: 10px; */
+}
+
+.form {
+    width: 80vw;
+    margin: 30px auto;
+}
+
+.form-btn {
+    width: 46%;
+}
+
+.options {
+    color: black;
+}
+
+.submitted-btn {
+    width: 46.4%;
+}
+
+.submitted {
+    margin: 250px auto;
+    width: 80%;
+}
+
+.success-msg {
+    margin: 40px;
+}
+
+.event-img {
+    height: 500px;
+}
+
+.card {
+    width: 90vw;
+    color: black;
+    margin: 50px auto;
+}
+
+.card-title {
+    color: black;
+    font-size: 25px;
+}
+
+.card-text {
+    color: black;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.events-btn {
+    width: 97%;
+}
+
+.registerForm {
+    color: white;
+}
+
+.thankyouPage {
+    color: white;
+}
