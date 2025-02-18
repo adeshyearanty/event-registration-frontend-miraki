@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import background from '../Static/background.jpg'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -8,7 +8,7 @@ const Register = () => {
         name: "",
         mobile: 0,
         email: "",
-        roll_no: 0,
+        rollNo: 0,
         event: "",
         fees: 100,
         city: "",
@@ -16,7 +16,7 @@ const Register = () => {
     });
     
     const navigate = useNavigate();
-    const [error, setError] = useState("");
+    const [err, setErr] = useState("");
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -24,9 +24,9 @@ const Register = () => {
         setUser((prevData) => {
             const updatedData = {
                 ...prevData,
-                [name]: name === "mobile" || name === "roll_no" ? Number(value) : value
+                [name]: name === "mobile" || name === "rollNo" ? Number(value) : value
             };
-            console.log("Updated User State:", updatedData);
+            // console.log("Updated User State:", updatedData);
             return updatedData;
         });
     };
@@ -35,16 +35,15 @@ const Register = () => {
         event.preventDefault();
     
         try {
-            await axios.post("http://localhost:3333/register", user);
+            await axios.post("http://localhost:3001/register", user);
             navigate('/thankyou');
         } catch (error) {
-            let errorMessage;
             if (error.response && error.response.data) {
-                errorMessage = error.response.data.message;
+                setErr(error.response.data.message);
             } else {
-                errorMessage = "An error occurred. Please try again.";
+                setErr("An error occurred. Please try again.");
             }
-            alert(errorMessage); // This will show the error message in an alert
+            alert(err);
         }
     };
 
@@ -69,7 +68,7 @@ const Register = () => {
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Roll Number</label>
-                            <input onChange={handleChange} name="roll_no" type="number" class="form-control" placeholder="Eg. 15" required />
+                            <input onChange={handleChange} name="rollNo" type="number" class="form-control" placeholder="Eg. 15" required />
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect">Select Event</label>

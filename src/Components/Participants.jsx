@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 import '../Static/registered.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import "../../node_modules/datatables.net-dt/css/dataTables.dataTables.min.css"; // ✅ Correct CSS import
-import $ from "jquery"; // ✅ Import jQuery
-import "datatables.net"; // ✅ Import DataTables
+import "../../node_modules/datatables.net-dt/css/dataTables.dataTables.min.css";
+import $ from "jquery";
+import "datatables.net";
 
 const Participants = () => {
-    const [users, setUsers] = useState([]); // Change initial state to null
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         axios
-            .get("http://localhost:3333/users")
+            .get("http://localhost:3001/users")
             .then((res) => {
                 setUsers(res.data);
                 console.log(users)
@@ -78,7 +78,7 @@ const Participants = () => {
                             {users.map((user) => {
                                 return (
                                     <tr>
-                                        <td>{user.roll_no}</td>
+                                        <td>{user.rollNo}</td>
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>{user.mobile}</td>
