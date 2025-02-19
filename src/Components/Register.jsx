@@ -35,7 +35,7 @@ const Register = () => {
         event.preventDefault();
     
         try {
-            await axios.post("http://localhost:3001/register", user);
+            await axios.post("https://event-registration-miraki.onrender.com/register", user);
             navigate('/thankyou');
         } catch (error) {
             if (error.response && error.response.data) {

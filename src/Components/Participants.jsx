@@ -11,7 +11,7 @@ const Participants = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/users")
+            .get("https://event-registration-miraki.onrender.com/users")
             .then((res) => {
                 setUsers(res.data);
                 console.log(users)
