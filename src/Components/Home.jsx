@@ -1,5 +1,4 @@
 import React from 'react'
-import background from '../Static/background.jpg'
 import { Link } from 'react-router-dom'
 
 const Home = () => {

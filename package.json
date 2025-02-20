@@ -8,6 +8,7 @@
     "datatables.net": "^2.2.2",
     "datatables.net-bs5": "^2.2.2",
     "datatables.net-dt": "^2.2.2",
+    "dotenv": "^16.4.7",
     "jquery": "^3.7.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

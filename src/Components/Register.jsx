@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -14,6 +17,7 @@ const Register = () => {
     state: "",
   });
 
+  const [events, setEvents] = useState([]);
   const navigate = useNavigate();
   const [err, setErr] = useState("");
   const [fieldErrors, setFieldErrors] = useState({});
@@ -25,6 +29,20 @@ const Register = () => {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get(`${process.env.SERVER_URL}/events`);
+        console.log(response.data)
+        setEvents(response.data);
+      } catch (error) {
+        console.error("Error retrieving events:", error);
+      } 
+    };
+
+    fetchEvents();
+  }, []);
 
   const handleSave = async (event) => {
     event.preventDefault();
@@ -55,7 +73,7 @@ const Register = () => {
         fees: Number(user.fees),
       };
       console.log("Data to Send:", dataToSend);
-      await axios.post("https://event-registration-miraki.onrender.com/register", dataToSend);
+      await axios.post(`${process.env.SERVER_URL}/register`, dataToSend);
       navigate("/thankyou");
     } catch (error) {
       if (error.response && error.response.data) {
@@ -169,9 +187,11 @@ const Register = () => {
                 className={`form-control ${fieldErrors.event ? 'is-invalid' : ''}`}
               >
                 <option value="" disabled>Select an event</option>
-                <option>CodeIgnite 2025</option>
-                <option>Web Wizards Workshop</option>
-                <option>Hack the Freshers</option>
+                {events.map((event) => (
+                  <option key={event._id} value={event.name}>
+                    {event.name}
+                  </option>
+                ))}
               </select>
               {fieldErrors.event && <div className="invalid-feedback">{fieldErrors.event}</div>}
             </div>

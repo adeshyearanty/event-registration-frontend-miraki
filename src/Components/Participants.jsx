@@ -4,13 +4,16 @@ import axios from "axios";
 import "../../node_modules/datatables.net-dt/css/dataTables.dataTables.min.css";
 import $ from "jquery";
 import "datatables.net";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const Participants = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://event-registration-miraki.onrender.com/users")
+      .get(`${process.env.SERVER_URL}/users`)
       .then((res) => {
         setUsers(res.data);
         console.log(users);
