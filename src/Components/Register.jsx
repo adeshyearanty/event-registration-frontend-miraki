@@ -209,9 +209,6 @@ const Register = () => {
               />
               {fieldErrors.state && <div className="invalid-feedback">{fieldErrors.state}</div>}
             </div>
-            {Object.entries(fieldErrors).map(([field, error]) => (
-                <div key={field} className="text-danger">{error}</div>
-            ))}
             <button type="submit" className="form-btn btn btn-success">Register</button>
             <button
               type="button"
