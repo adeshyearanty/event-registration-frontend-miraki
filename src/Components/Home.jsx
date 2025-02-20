@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <div>
-        <img class="image" src={background} alt="background" />
         <div class="main">
             <h3 class="heading">Event Registration</h3>
             <h1 class="welcome text-center">Welcome Students..!!</h1>

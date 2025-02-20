@@ -1,121 +1,921 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    /* color: white; */
+/* Global Styles */
+body {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .main {
-    margin: auto;
+  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .heading {
-    color: white;
-    margin: 30px 50px;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .welcome {
-    margin: 100px;
-    font-size: 70px;
-    color: white;
+  font-size: 3rem;
+  color: #ff00ff;
+  text-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
 }
 
-.index-container {
-    margin: 80px auto;
-    width: 600px;
-}
-
-.inner-container {
-    width: 100%;
-    display: flex;
-    margin: auto;
-}
-
+/* Buttons */
 .btn {
-    margin: 10px 20px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  border: none;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-.register-btn {
-    width: 93%;
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
 }
 
-.view-btn {
-    width: 50%;
-}
-
-.image {
-    height: 100vh;
-    width: 100vw;
-}
-
-.main {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    z-index: 1000;
-    /* padding: 10px; */
-}
-
+/* Forms */
 .form {
-    width: 80vw;
-    margin: 30px auto;
+  background: rgba(30, 30, 30, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
-.form-btn {
-    width: 46%;
+.form-control {
+  background-color: #2a2a2a;
+  border: 1px solid #00ffff;
+  color: #e0e0e0;
+  padding: 0.5rem;
 }
 
-.options {
-    color: black;
+.form-control:focus {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-.submitted-btn {
-    width: 46.4%;
-}
-
-.submitted {
-    margin: 250px auto;
-    width: 80%;
-}
-
-.success-msg {
-    margin: 40px;
-}
-
-.event-img {
-    height: 500px;
-}
-
+/* Cards */
 .card {
-    width: 90vw;
-    color: black;
-    margin: 50px auto;
+  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+  border: 1px solid #00ffff;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.card-img {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-img {
+  opacity: 1;
 }
 
 .card-title {
-    color: black;
-    font-size: 25px;
+  color: #ff00ff;
+}
+
+/* Tables */
+.table {
+  background-color: rgba(30, 30, 30, 0.8);
+  color: #e0e0e0;
+}
+
+.table thead th {
+  background-color: #00ffff;
+  color: #000;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.welcome,
+.heading {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .welcome {
+    font-size: 2.5rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px; /* Adjust this value as needed */
+}
+
+.register-btn {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.view-btn {
+  width: calc(50% - 0.5rem); /* Subtracting half of the gap between buttons */
+}
+
+.btn {
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  border: none;
+  color: #000;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+}
+
+.heading {
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  margin-bottom: 2rem;
+}
+
+.welcome {
+  color: #ff00ff;
+  text-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  border: none;
+  color: #000;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+}
+
+.heading {
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  margin-bottom: 2rem;
+}
+
+.welcome {
+  color: #ff00ff;
+  text-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.container {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.table {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background-color: #3a3a3a;
+  color: #00ffff;
+  border-bottom: 2px solid #00ffff;
+}
+
+.table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #3a3a3a;
+}
+
+.table td,
+.table th {
+  padding: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+.form-label {
+  color: #00ffff;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-select {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #00ffff;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.5);
+}
+
+.btn {
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  border: none;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+}
+
+/* Table styles */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Header styles */
+thead {
+  background-color: #2c5e77;
+}
+
+thead th {
+  padding: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #00ffff;
+}
+
+/* Body styles */
+tbody tr {
+  background-color: #2a2a2a;
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #333333;
+}
+
+tbody tr:hover {
+  background-color: #3a3a3a;
+}
+
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #444;
+}
+
+/* Apply background to cells instead of tbody */
+tbody td,
+tbody th {
+  background-color: inherit;
+}
+
+/* Footer styles */
+tfoot {
+  background-color: #2c5e77;
+}
+
+tfoot td {
+  padding: 15px;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* General Container Styling */
+.container {
+  background-color: #121212;
+  color: #e0e0e0;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.table thead th {
+  background-color: #333333;
+  color: #00ffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.table tbody tr {
+  background-color: #2a2a2a; /* Dark background for rows */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #333333; /* Alternate row color */
+}
+
+.table tbody tr:hover {
+  background-color: #444444; /* Highlight row on hover */
+}
+
+.table td,
+.table th {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #444444;
+}
+
+/* Fix for tbody not applying background in some browsers */
+.table tbody td {
+  background-color: inherit; /* Ensure cells inherit tbody's background */
+}
+
+/* Entries Dropdown Styling */
+.dataTables_length select {
+  background-color: #2a2a2a;
+  color: #00ffff;
+  border: none;
+  padding: 0.5rem;
+}
+
+.dataTables_length label {
+  color: #00ffff;
+}
+
+/* Search Box Styling */
+.dataTables_filter input {
+  background-color: #2a2a2a;
+  color: #00ffff;
+  border: none;
+  padding: 0.5rem;
+}
+
+.dataTables_filter label {
+  color: #00ffff;
+}
+
+/* Pagination Styling */
+.dataTables_paginate .paginate_button {
+  background-color: #2a2a2a !important; /* Default button background */
+  color: #00ffff !important; /* Default button text color */
+}
+
+.dataTables_paginate .paginate_button:hover {
+  background-color: #444444 !important; /* Hover effect */
+}
+
+.dataTables_paginate .paginate_button.current {
+  background-color: #00ffff !important; /* Active page button background */
+  color: #121212 !important; /* Active page button text color */
+}
+
+/* Filter Dropdown Styling */
+#eventFilter {
+  background-color: #1a1a1a;
+  color: #00ffff;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Headings and Labels */
+h1.text-center.text-success {
+  color: #00ff7f; /* Neon green heading */
+}
+
+.form-label {
+  color: #00ffff; /* Cyan label text */
+}
+
+/* General Container Styling */
+.container {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for contrast */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); /* Subtle glow effect */
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1a1a; /* Dark table background */
+  color: #e0e0e0; /* Bright text for readability */
+}
+
+.table thead th {
+  background-color: #2c2c2c; /* Darker header background */
+  color: #00ffff; /* Neon cyan for headers */
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.table tbody tr {
+  background-color: #2a2a2a; /* Dark gray for rows */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #333333; /* Slightly lighter gray for alternating rows */
+}
+
+.table tbody tr:hover {
+  background-color: #444444; /* Highlight row on hover */
+}
+
+.table td,
+.table th {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #444444; /* Subtle border between rows */
+}
+
+/* Ensure tbody text is bright and inherits the correct color */
+.table tbody td {
+  color: #ffffff; /* Bright white text for better readability */
+}
+
+/* Pagination Styling (DataTables) */
+.dataTables_paginate .paginate_button {
+  background-color: #2a2a2a !important; /* Button background matches table */
+  color: #00ffff !important; /* Neon cyan text for pagination buttons */
+}
+
+.dataTables_paginate .paginate_button:hover {
+  background-color: #444444 !important; /* Hover effect for pagination buttons */
+}
+
+.dataTables_paginate .paginate_button.current {
+  background-color: #00ffff !important; /* Active page button with cyan glow */
+  color: #121212 !important; /* Black text on active button */
+}
+
+/* Entries Dropdown Styling (DataTables) */
+.dataTables_length select {
+  background-color: #2a2a2a;
+  color: #00ffff;
+  border-radius: 5px;
+  border: none;
+}
+
+.dataTables_length label {
+  color: #00ffff;
+}
+
+/* Search Box Styling (DataTables) */
+.dataTables_filter input {
+  background-color: #2a2a2a;
+  color: #00ffff;
+  border-radius: 5px;
+  border: none;
+}
+
+.dataTables_filter label {
+  color: #00ffff;
+}
+
+/* Filter Dropdown Styling (Event Filter) */
+#eventFilter {
+  background-color: #1a1a1a;
+  color: #00ffff;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Headings and Labels */
+h1.text-center.text-success {
+  color: #00ff7f; /* Neon green heading for success message */
+}
+
+.form-label {
+  color: #00ffff; /* Cyan label text for filters and form inputs */
+}
+
+/* Buttons Styling (Links) */
+.submitted-btn,
+.btn-primary,
+.btn-success,
+.btn-secondary {
+  background-color: transparent;
+  color: #00ffff;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.submitted-btn:hover,
+.btn-primary:hover,
+.btn-success:hover,
+.btn-secondary:hover {
+  background-color: rgba(0, 255, 255, 0.1); /* Subtle glow effect on hover */
+}
+
+/* General Container Styling */
+.container {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for contrast */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); /* Subtle glow effect */
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1a1a; /* Dark table background */
+  color: #e0e0e0; /* Bright text for readability */
+}
+
+.table thead th {
+  background-color: #2c2c2c; /* Darker header background */
+  color: #00ffff; /* Neon cyan for headers */
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.table tbody tr {
+  background-color: #2a2a2a; /* Dark gray for rows */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #333333; /* Slightly lighter gray for alternating rows */
+}
+
+.table tbody tr:hover {
+  background-color: #444444; /* Highlight row on hover */
+}
+
+.table td,
+.table th {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #444444; /* Subtle border between rows */
+}
+
+/* Ensure tbody text is bright and inherits the correct color */
+.table tbody td {
+  color: #ffffff; /* Bright white text for better readability */
+}
+
+/* Pagination Styling (DataTables) */
+.dataTables_paginate .paginate_button {
+  background-color: #2a2a2a !important; /* Button background matches table */
+  color: #00ffff !important; /* Neon cyan text for pagination buttons */
+  border-radius: 5px;
+}
+
+.dataTables_paginate .paginate_button:hover {
+  background-color: #444444 !important; /* Hover effect for pagination buttons */
+}
+
+.dataTables_paginate .paginate_button.current {
+  background-color: #00ffff !important; /* Active page button with cyan glow */
+  color: #121212 !important; /* Black text on active button */
+}
+
+/* Entries Dropdown Styling (DataTables) */
+.dataTables_length select {
+  background-color: #2a2a2a;
+  color: #00ffff;
+  border-radius: 5px;
+  border: none;
+}
+
+.dataTables_length label {
+  color: #00ffff;
+}
+
+/* Search Box Styling (DataTables) */
+.dataTables_filter input {
+  background-color: #2a2a2a;
+  color: #00ffff;
+  border-radius: 5px;
+  border: none;
+}
+
+.dataTables_filter label {
+  color: #00ffff;
+}
+
+/* Filter Dropdown Styling (Event Filter) */
+#eventFilter {
+  background-color: #1a1a1a;
+  color: #00ffff;
+  border-radius: 5px;
+}
+
+/* Headings and Labels */
+h1.text-center.text-success {
+  color: #00ff7f; /* Neon green heading for success message */
+}
+
+.form-label {
+  color: #00ffff; /* Cyan label text for filters and form inputs */
+}
+
+/* Buttons Styling (Links) */
+.submitted-btn,
+.btn-primary,
+.btn-success,
+.btn-secondary {
+  background-color: transparent;
+  color: #00ffff;
+}
+
+/* General Styling */
+body {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for contrast */
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Fix Horizontal Overflow */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Card Styling */
+.card {
+  background-color: #1a1a1a; /* Dark card background */
+  color: #e0e0e0; /* Bright text for readability */
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.2); /* Futuristic glow effect */
+  margin-bottom: 2rem;
+}
+
+.card .row {
+  display: flex;
+  flex-wrap: wrap; /* Ensure content wraps on smaller screens */
+}
+
+.card .col-md-4 img {
+  max-width: 100%;
+  border-radius: 10px 0px 0px 10px; /* Rounded corners for images */
+}
+
+.card .col-md-8 {
+  padding: 1rem;
+}
+
+.card-title {
+  color: #00ffff; /* Neon cyan for titles */
 }
 
 .card-text {
-    color: black;
-    font-size: 20px;
-    text-align: justify;
+  line-height: 1.6; /* Improve readability */
 }
 
-.events-btn {
-    width: 97%;
+/* Buttons Styling */
+.btn-primary {
+  background-color: #00ffff; /* Neon cyan button */
+  color: #121212; /* Dark text for contrast */
+  border-radius: 5px;
 }
 
-.registerForm {
-    color: white;
+.btn-primary:hover {
+  background-color: #ff00ff; /* Neon magenta on hover */
 }
 
-.thankyouPage {
-    color: white;
+/* Responsive Fixes for Smaller Screens */
+@media (max-width: 768px) {
+  .card .row {
+    flex-direction: column; /* Stack content vertically on small screens */
+    align-items: center;
+    text-align: center;
+    margin-bottom: auto;
+    gap: 20px;
+  }
+}
+
+/* General Styling */
+body {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for contrast */
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix Horizontal Overflow */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Container Styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
+  padding: 2rem;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1a1a; /* Dark table background */
+  color: #e0e0e0; /* Bright text for readability */
+}
+
+.table thead th {
+  background-color: #2c2c2c; /* Darker header background */
+  color: #00ffff; /* Neon cyan for headers */
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.table tbody tr {
+  background-color: #2a2a2a; /* Dark gray for rows */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #333333; /* Slightly lighter gray for alternating rows */
+}
+
+.table tbody tr:hover {
+  background-color: #444444; /* Highlight row on hover */
+}
+
+.table td,
+.table th {
+  padding: 1rem;
+  text-align: left;
+}
+
+/* Ensure tbody text is bright and inherits the correct color */
+.table tbody td {
+  color: #ffffff; /* Bright white text for better readability */
+}
+
+/* Pagination Styling (DataTables) */
+.dataTables_paginate .paginate_button {
+  background-color: #2a2a2a !important; /* Button background matches table */
+  color: #00ffff !important; /* Neon cyan text for pagination buttons */
+  border-radius: 5px;
+}
+
+.dataTables_paginate .paginate_button:hover {
+  background-color: #444444 !important; /* Hover effect for pagination buttons */
+}
+
+.dataTables_paginate .paginate_button.current {
+  background-color: #00ffff !important; /* Active page button with cyan glow */
+  color: #121212 !important; /* Black text on active button */
+}
+
+/* Add Margins to Pagination Buttons */
+.dataTables_paginate .paginate_button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* Entries Dropdown Styling (DataTables) */
+.dataTables_length select {
+  background-color: #2a2a2a;
+  color: #00ffff;
+  border-radius: 5px;
+}
+
+.dataTables_length label {
+  color: #00ffff;
+}
+
+/* Search Box Styling (DataTables) */
+.dataTables_filter input {
+  background-color: #2a2a2a;
+  color: #00ffff;
+}
+
+.dataTables_filter label {
+  color: #00ffff;
+}
+
+/* Card Styling (EventsInfo) */
+.card {
+  background-color: #1a1a1a; /* Dark card background */
+  color: #e0e0e0; /* Bright text for readability */
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.3); /* Futuristic glow effect */
+}
+
+.card .row {
+  display: flex;
+}
+
+.card .col-md-4 img {
+  max-width: calc(100% -20 px);
+}
+.card-title {
+  color: #fff;
 }
